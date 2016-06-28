@@ -40,7 +40,6 @@ public abstract class DaoImpl<T> extends HibernateDaoSupport implements Dao<T> {
 	@SuppressWarnings("unchecked")
 	protected Class<T> entityClass = GenericsUtils.getSuperClassGenricType(getClass());
 
-	@Override
 	public boolean executeSql(final String sql) {
 		SQLQuery query =  sessionFactory.getCurrentSession().createSQLQuery(sql);
 		return 1 == query.executeUpdate();

@@ -19,13 +19,11 @@ import com.pjzc.framework.system.user.model.User;
 @Repository
 public class UserDaoImpl extends DaoImpl<User> implements IUserDao {
 
-	@Override
 	public int findOnLineCount() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
 	public User login(String uname, String upass) {
 		// TODO Auto-generated method stub
 		LinkedHashMap<String, String> param = new LinkedHashMap<String, String>();
@@ -39,7 +37,6 @@ public class UserDaoImpl extends DaoImpl<User> implements IUserDao {
 		return null;
 	}
 
-	@Override
 	public User getByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
