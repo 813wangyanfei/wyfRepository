@@ -7,9 +7,7 @@ public class LogBackTest {
 
 	 //logback  日志测试
     private final static Logger logger = LoggerFactory.getLogger(LogBackTest.class); 
-    /**
-    * @param args
-    */
+    
    public static void main(String[] args) {
        logger.info("logback 启动成功");
        logger.error("logback 启动成功");

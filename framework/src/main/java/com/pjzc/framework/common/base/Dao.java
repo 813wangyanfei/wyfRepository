@@ -9,7 +9,7 @@ import com.pjzc.framework.common.util.QueryResult;
  * 通用的数据层方法
  * 
  * @author mhsdong
- * 
+ *
  * @param <T>
  *            T对应的实体对象名称如：User
  */
@@ -22,6 +22,7 @@ public interface Dao<T> {
 	 */
 	public boolean executeSql(String sql);
 
+	
 	/**
 	 * 保存实体
 	 * 
