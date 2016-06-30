@@ -1,19 +1,10 @@
 package com.youngman.website.system.user.model;
 
-import static javax.persistence.GenerationType.IDENTITY;
+import java.sql.Date;
 
-import java.util.Date;
+import com.youngman.website.common.entity.Entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
-@Entity
-@Table(name = "tb_user")
-public class User implements java.io.Serializable {
+public class User extends Entity {
 
 	// Fields
 
@@ -21,7 +12,7 @@ public class User implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -8739621636790054779L;
-	private Integer id;
+	
 	private String userName;
 	private String userPwd;
 	private String userPwd2;
@@ -42,19 +33,7 @@ public class User implements java.io.Serializable {
 		this.userLevel = userLevel;
 	}
 
-	// Property accessors
-	@Id
-	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "Id", unique = true, nullable = false)
-	public Integer getId() {
-		return this.id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	@Column(name = "UserName")
 	public String getUserName() {
 		return this.userName;
 	}
@@ -63,7 +42,6 @@ public class User implements java.io.Serializable {
 		this.userName = userName;
 	}
 
-	@Column(name = "UserPwd")
 	public String getUserPwd() {
 		return this.userPwd;
 	}
@@ -75,7 +53,6 @@ public class User implements java.io.Serializable {
 	/**
 	 * @return the userPwd2
 	 */
-	@Transient
 	public String getUserPwd2() {
 		return userPwd2;
 	}
@@ -88,7 +65,6 @@ public class User implements java.io.Serializable {
 		this.userPwd2 = userPwd2;
 	}
 
-	@Column(name = "UserLevel")
 	public Integer getUserLevel() {
 		return this.userLevel;
 	}
@@ -97,13 +73,6 @@ public class User implements java.io.Serializable {
 		this.userLevel = userLevel;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", userPwd="
-				+ userPwd + ", userLevel=" + userLevel + "]";
-	}
-
-	@Column(name="IsDelete")
 	public Integer getIsDelete() {
 		return isDelete;
 	}
@@ -112,7 +81,6 @@ public class User implements java.io.Serializable {
 		this.isDelete = isDelete;
 	}
 
-	@Column(name="CreateDate")
 	public Date getCreateDate() {
 		return createDate;
 	}

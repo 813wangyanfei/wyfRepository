@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.youngman.website.system.user.dao.IUserDao;
+import com.youngman.website.system.user.dao.UserDao;
 import com.youngman.website.system.user.model.User;
 import com.youngman.website.system.user.service.IUserService;
 
@@ -20,7 +20,7 @@ import com.youngman.website.system.user.service.IUserService;
 @Service("userService")
 public class UserServiceImpl implements IUserService{
 	@Resource
-	IUserDao userDaoImpl;
+	UserDao userDaoImpl;
 
 	public User findUserByLogin(User user) {
 		return userDaoImpl.login(user.getUserName(), user.getUserPwd());
