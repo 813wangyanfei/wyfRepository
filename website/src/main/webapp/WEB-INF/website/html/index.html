@@ -1,0 +1,308 @@
+﻿<!doctype html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/style.css" />
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/font-awesome.min.css" />
+		<!-- ace styles -->
+		<link rel="stylesheet" href="css/ace.min.css" />
+		<title>加盟商管理平台</title>
+		<!-- Bootstrap -->
+		<style>
+			.row_middle {}
+			
+			.row_middle .div_left {
+				width: 190px;
+				display: inline-block;
+				float: left;
+				border-right: 1px solid #CDCDCD;
+				overflow-x: hidden;
+			}
+			
+			.row_middle .div_right {
+				display: inline-block;
+				float: right;
+			}
+			
+			.wrapper_footer {
+				width: 100%;
+				color: #C9CACC;
+				background-color: #22222c;
+				text-align: center;
+				line-height: 28px;
+				font-size: 12px;
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='js/jquery-2.0.3.min.js'>"+"<"+"script>");
+		</script>
+
+  		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='js/jquery.mobile.custom.min.js'>"+"<"+"script>");
+		</script>
+		<script src="js/bootstrap.min.js"></script>
+		<!--
+        	屏幕自适应
+        -->
+		<script type="text/javascript" src="js/util.js"></script>
+		<script type="text/javascript" src="js/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				layout_support();
+				$(window).resize(function() {
+					layout_support();
+				});
+			});
+			/**
+			 * 基础工具类
+			 * @author yzzhouyalei@foxmail.com
+			 */
+		</script>
+	</head>
+
+	<body>
+		<div class="menu">
+			<div class="logo">
+				<img src="img/logo.png" />
+			</div>
+			<div class="navbar-header pull-right" role="navigation">
+				<ul class="nav ace-nav">
+					<li class="grey">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<i class="icon-tasks"></i>
+							<span class="badge badge-grey">4</span>
+						</a>
+
+						<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+							<li class="dropdown-header">
+								<i class="icon-ok"></i> 还有4个任务完成
+							</li>
+
+							<li>
+								<a href="#">
+									<div class="clearfix">
+										<span class="pull-left">待付款订单处理</span>
+									</div>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<div class="clearfix">
+										<span class="pull-left">待付款订单处理</span>
+									</div>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<div class="clearfix">
+										<span class="pull-left">待付款订单处理</span>
+									</div>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<div class="clearfix">
+										<span class="pull-left">待付款订单处理</span>
+									</div>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+										查看任务列表
+										<i class="icon-arrow-right"></i>
+									</a>
+							</li>
+						</ul>
+					</li>
+
+					<li class="purple">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<i class="icon-bell-alt icon-animated-bell"></i>
+							<span class="badge badge-important">8</span>
+						</a>
+
+						<ul class="pull-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+							<li class="dropdown-header">
+								<i class="icon-warning-sign"></i> 8条通知
+							</li>
+
+							<li>
+								<a href="#">
+									<div class="clearfix">
+										<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-pink icon-comment"></i>
+												新闻评论
+											</span>
+										<span class="pull-right badge badge-info">+12</span>
+									</div>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<i class="btn btn-xs btn-primary icon-user"></i> 切换为编辑登录..
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<div class="clearfix">
+										<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-success icon-shopping-cart"></i>
+												新订单
+											</span>
+										<span class="pull-right badge badge-success">+8</span>
+									</div>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<div class="clearfix">
+										<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-info icon-twitter"></i>
+												粉丝
+											</span>
+										<span class="pull-right badge badge-info">+11</span>
+									</div>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+										查看所有通知
+										<i class="icon-arrow-right"></i>
+									</a>
+							</li>
+						</ul>
+					</li>
+
+					<li class="green">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<i class="icon-envelope icon-animated-vertical"></i>
+							<span class="badge badge-success">5</span>
+						</a>
+
+						<ul class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+							<li class="dropdown-header">
+								<i class="icon-envelope-alt"></i> 5条消息
+							</li>
+
+							<li>
+								<a href="#">
+									<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Alex:</span> 不知道写啥 ...
+									</span>
+
+									<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>1分钟以前</span>
+									</span>
+									</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Susan:</span> 不知道翻译...
+									</span>
+
+									<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>20分钟以前</span>
+									</span>
+									</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Bob:</span> 到底是不是英文 ...
+									</span>
+
+									<span class="msg-time">
+												<i class="icon-time"></i>
+												<span>下午3:15</span>
+									</span>
+									</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="inbox.html">
+										查看所有消息
+										<i class="icon-arrow-right"></i>
+									</a>
+							</li>
+						</ul>
+					</li>
+
+					<li class="light-blue">
+						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+							<span class="user-info">
+									<small>欢迎光临,</small>
+									小石头
+								</span>
+
+							<i class="icon-caret-down"></i>
+						</a>
+
+						<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+							<li>
+								<a href="#">
+									<i class="icon-cog"></i> 设置
+								</a>
+							</li>
+
+							<li>
+								<a href="#">
+									<i class="icon-user"></i> 个人资料
+								</a>
+							</li>
+
+							<li class="divider"></li>
+
+							<li>
+								<a href="#">
+									<i class="icon-off"></i> 退出
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- /.ace-nav -->
+			</div>
+		</div>
+		<div class="row_middle">
+			<div class="div_left">
+				<iframe style="max-width:190px;" class="layout" data_h="h-45-28" src="menu.html" name="iframe_left" frameborder="0"></iframe>
+			</div>
+			<div class="div_right">
+				<iframe class="layout" id="conIframe" data_w="w-190" data_h="h-45-28" src="content.html" name="conIframe" frameborder="0"></iframe>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="wrapper_footer">
+			版权所有：北京盖勒克丝环保科技有限公司
+		</div>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,27 @@
+ .menu {
+ 	background-color: #3c3b42;
+ 	height: 45px;
+ 	width: 100%;
+ }
+ 
+ .menu .logo {
+ 	width: 190px;
+ 	height: 45px;
+ 	float: left;
+ 	background-color: #2c2a33;
+ }
+ 
+ .menu .logo img {
+ 	display: block;
+ 	margin: 0 auto;
+ 	padding: 7px 0;
+ }
+ 
+ .table {
+ 	margin-bottom: 0px
+ }
+ 
+ .bor-top-none {
+ 	border-top: none;
+ }
+.padd-left{ padding-left: 20px; font-family: "微软雅黑";}
