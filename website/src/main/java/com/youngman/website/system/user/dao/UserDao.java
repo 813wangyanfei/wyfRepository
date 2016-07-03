@@ -4,13 +4,12 @@ import java.util.Collection;
 
 import javax.annotation.Resource;
 
-import org.apache.shiro.authc.Account;
 import org.springframework.stereotype.Repository;
 
 import com.youngman.website.common.dao.ReadDao;
 import com.youngman.website.common.dao.WriteDao;
 import com.youngman.website.common.dao.support.SqlParameter;
-import com.youngman.website.system.user.model.User;
+import com.youngman.website.system.user.entity.User;
 
 @Repository
 public class UserDao {
@@ -27,27 +26,27 @@ public class UserDao {
 		return readDao.count(User.class, "User_count", parameter);
 	}
 
-	public Collection<Account> page(SqlParameter parameter) {
+	public Collection<User> page(SqlParameter parameter) {
 		return readDao.select(User.class, "User_page", parameter);
 	}
 
-	public Account read(SqlParameter parameter) {
+	public User read(SqlParameter parameter) {
 		return readDao.read(User.class, "User_read", parameter);
 	}
 
 	public int delete(SqlParameter parameter) {
-		return writeDao.delete(Account.class, "Account_delete", parameter);
+		return writeDao.delete(User.class, "User_delete", parameter);
 	}
 
 	public int update(SqlParameter parameter) {
-		return writeDao.update(Account.class, "Account_update", parameter);
+		return writeDao.update(User.class, "User_update", parameter);
 	}
 	
 	public int updatePwd(SqlParameter parameter) {
-		return writeDao.update(Account.class, "Account_updatePwd", parameter);
+		return writeDao.update(User.class, "User_updatePwd", parameter);
 	}
 	public int Account_updatePhone(SqlParameter parameter) {
-		return writeDao.update(Account.class, "Account_updatePhone", parameter);
+		return writeDao.update(User.class, "User_updatePhone", parameter);
 	}
 	
 	

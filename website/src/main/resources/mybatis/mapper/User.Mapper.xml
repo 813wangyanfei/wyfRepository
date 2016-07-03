@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.youngman.website.system.user.entity.User">
+	<resultMap id="UserResultMap" type="com.youngman.website.system.user.entity.User">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="user_pass" property="userPwd" jdbcType="VARCHAR" />
+		<result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+		<result column="user_email" property="userEmail" jdbcType="VARCHAR" />
+		<result column="user_uuid" property="userUuid" jdbcType="VARCHAR" />
+		<result column="role_id" property="roleId" jdbcType="VARCHAR" />
+		<result column="user_type" property="userType" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<insert id="User_create" parameterType="com.youngman.website.system.user.entity.User">
+		<selectKey resultType="long" keyProperty="id">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into tb_user (
+		user_name,
+		user_pass,
+		user_phone,
+		user_email,
+		user_uuid,
+		role_id,
+		user_type
+		)
+		values (
+		#{userName,jdbcType=VARCHAR},
+		#{userPwd,jdbcType=VARCHAR},
+		#{userPhone,jdbcType=VARCHAR},
+		#{userEmail,jdbcType=VARCHAR},
+		#{userUuid,jdbcType=VARCHAR},
+		#{roleId,jdbcType=VARCHAR},
+		#{userType,jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<select id="User_read" parameterType="map" resultMap="UserResultMap">
+		select * from tb_user
+		<include refid="UserFindCriteria" />
+		limit 1;
+	</select>
+
+	<select id="User_count" parameterType="map" resultType="long">
+		select count(*) from tb_user
+		<include refid="UserFindCriteria" />
+	</select>
+
+	<select id="User_page" parameterType="map" resultMap="UserResultMap">
+		select * from tb_user
+		<include refid="UserFindCriteria" />
+		<include refid="Public.OrderCriteria" />
+		<include refid="Public.PageCriteria" />
+	</select>
+
+	<delete id="User_delete" parameterType="map">
+		delete from tb_user
+		<include refid="UserFindCriteria" />
+	</delete>
+
+	<update id="User_update" parameterType="map">
+		update tb_user
+		<include refid="UserUpdateCriteria" />
+		<include refid="UserFindCriteria" />
+	</update>
+
+	<sql id="UserFindCriteria">
+		<where>
+			<if test="queryId != null">
+				and id = #{queryId,jdbcType=VARCHAR}
+			</if>
+			<if test="queryUserPhone != null">
+				and user_phone = #{queryUserPhone,jdbcType=VARCHAR}
+			</if>
+			<if test="queryUserName != null">
+				and user_name = #{queryUserName,jdbcType=VARCHAR}
+			</if>
+			<if test="queryUserPass != null">
+				and user_pass = #{queryUserPass,jdbcType=VARCHAR}
+			</if>
+			
+			<if test="queryUserPhoneLike != null">
+				and user_phone like #{queryUserPhoneLike,jdbcType=VARCHAR}
+			</if>
+			<if test="queryUserNameLike != null">
+				and user_name like #{queryUserNameLike,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</sql>
+
+	<sql id="UserUpdateCriteria">
+		<set>
+	        <if test="updateUserName != null">
+				 user_name = #{updateUserName,jdbcType=VARCHAR},
+			</if>
+			<if test="updateUserPhone != null">
+				 user_phone = #{updateUserPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="updateUserPass != null">
+				 user_pass = #{updateUserPass,jdbcType=VARCHAR},
+			</if>
+			<if test="updateUserEmail != null">
+				 user_email = #{updateUserEmail,jdbcType=VARCHAR},
+			</if>
+			
+		</set>
+	</sql>
+</mapper>

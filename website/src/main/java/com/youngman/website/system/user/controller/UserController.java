@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.youngman.website.system.user.model.User;
+import com.youngman.website.common.dao.support.SqlParameter;
+import com.youngman.website.system.user.entity.User;
 import com.youngman.website.system.user.service.IUserService;
 
 /**
@@ -68,7 +69,10 @@ public class UserController {
 		if (session.getAttribute("user") != null) {
 			return "main";
 		}
-		User nuser = userService.findUserByLogin(user);
+		SqlParameter parameter = SqlParameter.getSqlParameter();
+		parameter.addQuery("userName", user.getUserName());
+		parameter.addQuery("userPass", user.getUserPwd());
+		User nuser = userService.read(User.class, "User_read", parameter);
 		if (nuser == null) {
 			request.setAttribute("info", "用户名或密码错误");
 			return "login";

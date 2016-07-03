@@ -3,7 +3,8 @@ package com.youngman.website.common.dao;
 import java.util.Collection;
 import java.util.Map;
 
-import org.springframework.jdbc.core.SqlParameter;
+import com.youngman.website.common.dao.support.SqlParameter;
+
 
 public interface ReadDao {
 

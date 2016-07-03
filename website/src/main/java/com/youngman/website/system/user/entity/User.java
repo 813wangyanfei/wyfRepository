@@ -1,4 +1,4 @@
-package com.youngman.website.system.user.model;
+package com.youngman.website.system.user.entity;
 
 import java.sql.Date;
 
@@ -19,8 +19,53 @@ public class User extends Entity {
 	private Integer userLevel;
 	private Integer isDelete;
 	private Date createDate;
+	private String userPhone;
+	private String userEmail;
+	private String userUuid;
+	private String roleId;
+	private String userType;
 
 	// Constructors
+
+	public String getUserPhone() {
+		return userPhone;
+	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public String getUserUuid() {
+		return userUuid;
+	}
+
+	public void setUserUuid(String userUuid) {
+		this.userUuid = userUuid;
+	}
+
+	public String getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
 
 	/** default constructor */
 	public User() {

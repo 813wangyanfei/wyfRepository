@@ -9,8 +9,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.youngman.website.common.dao.support.SqlParameter;
 import com.youngman.website.system.user.dao.UserDao;
-import com.youngman.website.system.user.model.User;
+import com.youngman.website.system.user.entity.User;
 import com.youngman.website.system.user.service.IUserService;
 
 /**
@@ -20,14 +21,17 @@ import com.youngman.website.system.user.service.IUserService;
 @Service("userService")
 public class UserServiceImpl implements IUserService{
 	@Resource
-	UserDao userDaoImpl;
+	UserDao userDao;
 
-	public User findUserByLogin(User user) {
-		return userDaoImpl.login(user.getUserName(), user.getUserPwd());
+	
+	public long addUser(User user){
+		return userDao.create(user);
 	}
-
-	public void addUser(User user){
-		userDaoImpl.addUser(user);
+	
+	@Override
+	public User read(Class<User> clazz, String sqlId, SqlParameter parameter) {
+		// TODO Auto-generated method stub
+		return userDao.read(parameter);
 	}
 	
 	public List<User> findUserAll() {
@@ -49,6 +53,7 @@ public class UserServiceImpl implements IUserService{
 		// TODO Auto-generated method stub
 		
 	}
+
 
 
 }

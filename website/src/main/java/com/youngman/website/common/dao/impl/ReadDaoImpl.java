@@ -21,6 +21,7 @@ public class ReadDaoImpl extends SqlSessionDaoSupport implements ReadDao {
 		return this.getSqlSession().selectOne(sqlId, parameter);
 	}
 
+	@Override
 	public <T> T read(Class<T> clazz, String sqlId, SqlParameter parameter) {
 		return this.getSqlSession().selectOne(sqlId, parameter.getCriteria());
 	}
@@ -37,6 +38,7 @@ public class ReadDaoImpl extends SqlSessionDaoSupport implements ReadDao {
 		return (val == null) ? 0 : val;
 	}
 
+	@Override
 	public long count(Class<?> clazz, String sqlId, SqlParameter parameter) {
 		Long val = this.getSqlSession().selectOne(sqlId, parameter.getCriteria());
 		return (val == null) ? 0 : val;
@@ -52,6 +54,7 @@ public class ReadDaoImpl extends SqlSessionDaoSupport implements ReadDao {
 		return this.getSqlSession().selectList(sqlId, parameter);
 	}
 
+	@Override
 	public <T> Collection<T> select(Class<T> clazz, String sqlId, SqlParameter parameter) {
 		return this.getSqlSession().selectList(sqlId, parameter.getCriteria());
 	}
@@ -66,31 +69,5 @@ public class ReadDaoImpl extends SqlSessionDaoSupport implements ReadDao {
 	
 	public <T, E> Map<T, E> selectMap(String sqlId, String parameter, String mapKey) {
 		return this.getSqlSession().selectMap(sqlId, parameter, mapKey);
-	}
-
-	@Override
-	public <T> T read(Class<T> clazz, String sqlId, org.springframework.jdbc.core.SqlParameter parameter) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public long count(Class<?> clazz, String sqlId, org.springframework.jdbc.core.SqlParameter parameter) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public <T> Collection<T> select(Class<T> clazz, String sqlId,
-			org.springframework.jdbc.core.SqlParameter parameter) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T, E> Map<T, E> selectMap(String sqlId, org.springframework.jdbc.core.SqlParameter parameter,
-			String mapKey) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

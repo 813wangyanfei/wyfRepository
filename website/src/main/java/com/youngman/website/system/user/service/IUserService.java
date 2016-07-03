@@ -1,25 +1,11 @@
 package com.youngman.website.system.user.service;
 
-import java.util.List;
-
-import com.youngman.website.system.user.model.User;
+import com.youngman.website.common.dao.support.SqlParameter;
+import com.youngman.website.system.user.entity.User;
 
 public interface IUserService {
 
-	public User findUserByLogin(User user);
-
-	public List<User> findUserAll();
-
-	public User findUser(int updateId);
-
-	/**
-	 * 
-	 * 
-	 * @param User
-	 */
-	public void updateUser(User user);
-
-	public void deleteUser(User user);
+	public User read(final Class<User> clazz, final String sqlId, final SqlParameter parameter);
 	
-	public void addUser(User user);
+	public long addUser(User user);
 }

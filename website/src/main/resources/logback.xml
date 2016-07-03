@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" scanPeriod="2 seconds">
- <contextName>framework</contextName>  
+ <contextName>website</contextName>  
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径-->  
       <property  name="LOG_HOME" value="d:/logs" />  
     <jmxConfigurator />  
@@ -35,7 +35,7 @@
   <Encoding>UTF-8</Encoding>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>
-				${LOG_HOME}/info/framework-info.%d{yyyy-MM-dd}.log.zip
+				${LOG_HOME}/info/website-info.%d{yyyy-MM-dd}.log.zip
 			</FileNamePattern>
 		</rollingPolicy>
    <layout class="ch.qos.logback.classic.PatternLayout">  
@@ -57,7 +57,7 @@
   <Encoding>UTF-8</Encoding>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 			<FileNamePattern>
-				${LOG_HOME}/error/framework-error.%d{yyyy-MM-dd}.log.zip
+				${LOG_HOME}/error/website-error.%d{yyyy-MM-dd}.log.zip
 			</FileNamePattern>
 		</rollingPolicy>
    <layout class="ch.qos.logback.classic.PatternLayout">  
